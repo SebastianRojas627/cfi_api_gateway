@@ -1,9 +1,13 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { ProxyController } from './proxy/proxy.controller';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [HttpModule],
-  controllers: [ProxyController],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),HttpModule
+  ],
+  controllers: [],
 })
 export class AppModule {}
